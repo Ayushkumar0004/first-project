@@ -1,76 +1,168 @@
-/* Full-page layout */
-.login-container {
-  display: flex;
-  height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #f8f9fa, #e0f7fa);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Left side with image */
-.login-left {
-  flex: 1;
-  background: #ffffff;
+body {
+  background: linear-gradient(120deg, #c3aed6, #f5d0fe, #d0f0fd);
+  background-size: 200% 200%;
+  animation: bgShift 10s ease infinite;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
 }
 
-.login-left img {
-  max-width: 100%;
-  height: auto;
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Right side with form */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-container {
+  width: 90%;
+  max-width: 1000px;
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+  animation: fadeIn 0.8s ease;
+}
+
+.login-left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-left > img {
+  width: 80%;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
 .login-right {
-  flex: 1;
-  background: #ffffff;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 3rem 4rem;
+  align-items: center;
+  gap: 25px;
 }
 
-.login-right h1 {
-  font-size: 2.5rem;
-  color: #0077b6;
-  margin-bottom: 2rem;
+.login-header {
+  width: 100%;
   text-align: center;
 }
 
-/* Form styling */
+.login-header h1 {
+  color: #4a148c;
+  font-size: 2.5rem;
+}
+
+.login-header p {
+  color: #555;
+  font-size: 1rem;
+}
+
 .login-form {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  align-items: center;
+  gap: 15px;
 }
 
-.login-form input {
-  padding: 0.8rem 1rem;
-  font-size: 1rem;
+.login-form-inp {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-form-inp label {
+  font-weight: 600;
+  color: #333;
+}
+
+.login-form-inp input {
+  padding: 12px 16px;
+  border-radius: 10px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-
-.login-form input:focus {
-  outline: none;
-  border-color: #0077b6;
-  box-shadow: 0 0 5px rgba(0, 119, 182, 0.3);
-}
-
-.login-form button {
-  padding: 0.8rem;
   font-size: 1rem;
-  background-color: #0077b6;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  background: #fff;
 }
 
-.login-form button:hover {
-  background-color: #005f87;
+.login-form-inp input:focus {
+  outline: none;
+  border-color: #7e57c2;
+  box-shadow: 0 0 8px rgba(126, 87, 194, 0.3);
+}
+
+.login-form-inp button {
+  padding: 12px;
+  background: linear-gradient(90deg, #7e57c2, #ab47bc);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(126, 87, 194, 0.4);
+}
+
+.login-form-inp button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #6a1b9a, #8e24aa);
+}
+
+.login-form-inp p {
+  color: #777;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .login-left {
+    display: none;
+  }
+
+  .login-right {
+    width: 100%;
+  }
+
+  .login-form-inp {
+    width: 100%;
+  }
+
+  .login-header h1 {
+    font-size: 2rem;
+  }
 }
