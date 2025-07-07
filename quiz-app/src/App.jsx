@@ -1,12 +1,11 @@
-import React from 'react';
-import Login from './pages/login/Login';
+// import React from 'react';
+// import Login from './pages/login/Login';
+// function App() {
+//   return (
+//     <div className="App">
+//       <Login />
+//     </div>
+//   );
+// }
 
-function App() {
-  return (
-    <div className="App">
-      <Login />
-    </div>
-  );
-}
-
-export default App;
+// export default App;
