@@ -1,0 +1,95 @@
+/* Fullscreen layout and centering */
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  padding-top: 40px;
+}
+
+/* Dark mode support */
+body.dark-mode {
+  background-color: #121212;
+}
+
+/* Container box */
+.container {
+  width: 90%;
+  max-width: 700px;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .container {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+/* Title */
+.container h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+}
+
+body.dark-mode .container h1 {
+  color: #e3f2fd;
+}
+
+/* Todo list styles */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Todo item */
+.todo-item {
+  background-color: #e3f2fd;
+  border: 1px solid #90caf9;
+  padding: 12px 16px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: left;
+  font-size: 16px;
+  color: #0d47a1;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.todo-item:hover {
+  background-color: #bbdefb;
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+body.dark-mode .todo-item {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #e3f2fd;
+}
+
+/* Toggle Button */
+.toggle-btn {
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1976d2;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: #1565c0;
+}
