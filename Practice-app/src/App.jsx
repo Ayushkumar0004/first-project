@@ -1,4 +1,4 @@
-import { useState , useEffect} from 'react'
+// import { useState , useEffect} from 'react'
 // import './App.css'
 
 // function App() {
@@ -130,21 +130,54 @@ import { useState , useEffect} from 'react'
 // export default App;
 
 
-function App() {
-  const [count, setCount] = useState(0);
-  const countRef = useRef(null);
+// function App() {
+//   const [count, setCount] = useState(0);
+//   const countRef = useRef(null);
 
-  const handleClick = () => {
-    setCount(count + 1);
-    countRef.current = 150;
-  };
+//   const handleClick = () => {
+//     setCount(count + 1);
+//     countRef.current = 150;
+//   };
 
-  return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <p>You clicked {countRef.current} times</p>
-      <button onClick={handleClick}>Click me</button>
-    </div>
-  );
+//   return (
+//     <div style={{ textAlign: "center", marginTop: "50px" }}>
+//       <p>You clicked {countRef.current} times</p>
+//       <button onClick={handleClick}>Click me</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+import React, {useReducer} from "react";
+
+    const initialState = { count: 0 };
+    
+    const reducer = (state, action) => {
+        switch (action.type) {
+            case "increment":
+                return { count: state.count + 1 };
+            case "decrement":
+                return { count: state.count - 1 };
+            case "reset":
+                return { count: 0 };
+            default:
+                return state;
+            }
+        };
+
+
+    function ReducerComp() {
+    const [state, dispatch] = useReducer(reducer, initialState);
+    return (
+        <div>
+            <h1>Count: {state.count}</h1>
+            <button onClick={() => dispatch({ type: "increment" })}>Increment</button>
+            <button onClick={() => dispatch({ type: "decrement" })}>Decrement</button>
+            <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
+        </div>
+    )
 }
 
-export default App;
+export default ReducerComp;
